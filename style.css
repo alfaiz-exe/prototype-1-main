@@ -1,0 +1,33 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: border-box;
+}
+h1{
+    text-align:center;
+    font-family:sans-serif;
+
+}
+.centered-div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.navbar{
+    display:flex;
+    position: fixed;
+    bottom:0%;
+    justify-content:space-evenly;
+    width:100%;
+    padding:20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+svg{
+    width: 30px;
+    height: 30px;
+}
+botton
+{
+     width:30px;
+     height:30px;
+}
