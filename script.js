@@ -35,7 +35,7 @@ async function getEducationalShorts(apiKey, maxResults = 10) {
       iframe.width = 315; // You can adjust the width and height as needed
       iframe.height = 560;
       iframe.src = `https://www.youtube.com/embed/${video.videoId}`;
-      iframe.allowfullscreen = true;
+      iframe.setAttribute('allowfullscreen','true')
   
       // Create a paragraph for the video title
       const titleParagraph = document.createElement('p');
