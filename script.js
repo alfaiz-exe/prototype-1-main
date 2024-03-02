@@ -32,8 +32,8 @@ async function getEducationalShorts(apiKey, maxResults = 10) {
       
       // Create an iframe for the video
       const iframe = document.createElement('iframe');
-      iframe.width = 560; // You can adjust the width and height as needed
-      iframe.height = 315;
+      iframe.width = 315; // You can adjust the width and height as needed
+      iframe.height = 560;
       iframe.src = `https://www.youtube.com/embed/${video.videoId}`;
       iframe.allowfullscreen = true;
   
