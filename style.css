@@ -3,6 +3,17 @@
     margin: 0px;
     border: border-box;
 }
+.video{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    padding-left: 20%;
+    padding-right: 20%; 
+    margin-left: 20%;
+    margin-right: 20%;
+    position: sticky;
+}
 .nav-svg{
     width: 30px;
     height: 30px;
@@ -58,16 +69,9 @@ html,body{
     background-color: black;
     color: white;
 }
-#video{
-    width: 210px;
-    height: 373px;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-}
 .navbar{
     display:flex;
-    position: fixed;
+    position: sticky;
     bottom:0%;
     justify-content:space-evenly;
     width:100%;
