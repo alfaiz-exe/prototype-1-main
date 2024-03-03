@@ -3,15 +3,67 @@
     margin: 0px;
     border: border-box;
 }
+.nav-svg{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+}
+.message{
+    background-color: black;
+    color:white;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    flex-direction: row;
+    font-style: italic;
+}
+#messages{
+    display: flex;
+    flex-direction: column;
+}
+#profile-photo{
+    height: 50px;
+    width: 50px;
+}
 h1{
+    height: 50px;
+}
+h2{
+    font-style: italic;
+}
+.quote{
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align:center;
-    font-family:sans-serif;
-
+    color:white;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    color:white;
+    background-color: black;
+    box-sizing: border-box;
 }
 .centered-div{
-    display:flex;
-    justify-content:center;
+    position: relative;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
     align-items:center;
+    gap:3em;
+    background-color: black;
+    color: white;
+}
+#video{
+    width: 210px;
+    height: 373px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
 }
 .navbar{
     display:flex;
@@ -20,12 +72,10 @@ h1{
     justify-content:space-evenly;
     width:100%;
     padding:20px;
+    background-color: black;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-svg{
-    width: 30px;
-    height: 30px;
-}
+
 botton
 {
      width:30px;
