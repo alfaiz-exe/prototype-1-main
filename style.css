@@ -5,18 +5,12 @@
 }
 .video{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: sticky;
-    padding-left: 20%;
-    padding-right: 20%;
-    margin-left: 20%;
-    margin-right: 20%;
 }
 p{
-    padding-right: 20%;
-    padding-left: 20%;
+    width: 260px;
 }
 .nav-svg{
     width: 30px;
