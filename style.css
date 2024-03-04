@@ -8,10 +8,12 @@
     align-items: center;
     justify-content: center;
     position: sticky;
+    padding-bottom: 40px;
+    background-color: black;
 }
 p{
     width: 260px;
-    margin-botom:5%;
+    margin-bottom:5%
 }
 .nav-svg{
     width: 30px;
@@ -68,7 +70,7 @@ html,body{
     background-color: black;
     color: white;
 }
-.navbar{
+.navbarSticky{
     display:flex;
     position: sticky;
     bottom:0%;
@@ -78,7 +80,16 @@ html,body{
     background-color: black;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-
+.navbarFixed{
+    display: flex;
+    position: fixed;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    bottom:0%;
+    background-color: black;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
 botton
 {
      width:30px;
