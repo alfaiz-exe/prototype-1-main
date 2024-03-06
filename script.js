@@ -5,7 +5,7 @@ async function getEducationalShorts(apiKey, maxResults = 10) {
       const apiUrl = 'https://www.googleapis.com/youtube/v3/search';
   
       // Make a request to the API
-      const response = await fetch(`${apiUrl}?key=${apiKey}&part=snippet&q=educational%20shorts&type=video&maxResults=${maxResults}`);
+      const response = await fetch(`${apiUrl}?key=${apiKey}&part=snippet&q=2minutejs%20shorts&type=video&maxResults=${maxResults}`);
       const data = await response.json();
   
       // Extract video information from the response
