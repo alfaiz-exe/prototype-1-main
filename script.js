@@ -10,7 +10,7 @@ async function getEducationalShorts(apiKey, maxResults = 10) {
 
     // Extract video information from the response
     const videoIds = data.items.map(item => item.id.videoId).join(',');
-    const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&part=snippet&id=${videoIds}`);
+    const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&part=snippet&id=${videoIds}?vq480`);
     const videosData = await videosResponse.json();
 
     // Extract full descriptions and other video information
