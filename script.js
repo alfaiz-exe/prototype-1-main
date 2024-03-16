@@ -7,13 +7,11 @@ async function getEducationalShorts(apiKey, maxResults = 10) {
     // Make a request to the API
     const response = await fetch(`${apiUrl}?key=${apiKey}&part=snippet&q=2minutejs%20shorts&type=video&maxResults=${maxResults}`);
     const data = await response.json();
-
-    // Extract video information from the response
-    const videoIds = data.items.map(item => item.id.videoId).join(',');
-    const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&part=snippet&id=${videoIds}?vq480`);
-    const videosData = await videosResponse.json();
-
     // Extract full descriptions and other video information
+    const videoIds = data.items.map(item => item.id.videoId).join(',');
+    const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&part=snippet&id=${videoIds}`);
+    const videosData = await videosResponse.json();
+    console.log(videosData);
     const videos = data.items.map((item, index) => {
       return {
         title: item.snippet.title,
@@ -21,7 +19,7 @@ async function getEducationalShorts(apiKey, maxResults = 10) {
         videoId: item.id.videoId,
       };
     });
-
+    
     return videos;
   } catch (error) {
     console.error('Error fetching educational shorts:', error);
@@ -39,7 +37,7 @@ function renderVideosLazy(videos) {
 
     // Create the YouTube player iframe
     const playerIframe = document.createElement('iframe');
-    playerIframe.src = `https://www.youtube.com/embed/${video.videoId}`;
+    playerIframe.src = `https://www.youtube.com/embed/${video.videoId}?vq480}`;
     playerIframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     playerIframe.allowFullscreen = true;
     playerIframe.height = 560;
