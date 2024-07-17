@@ -1,91 +1,68 @@
-// Function to fetch educational shorts from YouTube
-async function getEducationalShorts(apiKey, maxResults = 10) {
-  try {
-    // YouTube Data API endpoint
-    const apiUrl = 'https://www.googleapis.com/youtube/v3/search';
+const API_KEY =  'AIzaSyBUG7vmvs9wNDFWckrj5H8xU010zlc94Ec'; // Replace with your YouTube Data API v3 key
+// Replace your existing JavaScript with this code
 
-    // Make a request to the API
-    const response = await fetch(`${apiUrl}?key=${apiKey}&part=snippet&q=2minutejs%20shorts&type=video&maxResults=${maxResults}`);
-    const data = await response.json();
-    // Extract full descriptions and other video information
-    const videoIds = data.items.map(item => item.id.videoId).join(',');
-    const videosResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&part=snippet&id=${videoIds}`);
-    const videosData = await videosResponse.json();
-    console.log(videosData);
-    const videos = data.items.map((item, index) => {
-      return {
-        title: item.snippet.title,
-        description: videosData.items[index].snippet.description,
-        videoId: item.id.videoId,
-      };
-    });
-    
-    return videos;
-  } catch (error) {
-    console.error('Error fetching educational shorts:', error);
-    return [];
+// Wait until the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+  // Get all the subject links
+  var subjects = document.querySelectorAll(".subject");
+
+  // Add a click event listener to each subject link
+  subjects.forEach(function(subject) {
+      subject.addEventListener("click", function(event) {
+          // Prevent the default action of the link
+          event.preventDefault();
+
+          // Get the ID of the target topics menu from the data-target attribute
+          var targetId = subject.getAttribute("data-target");
+          // Get the corresponding topics menu element
+          var targetMenu = document.getElementById(targetId);
+
+          // Hide all topics menus
+          var allMenus = document.querySelectorAll(".scrollmenu.topics");
+          allMenus.forEach(function(menu) {
+              menu.style.display = "none";
+          });
+
+          // Show the clicked topics menu
+          if (targetMenu) {
+              targetMenu.style.display = "block";
+          }
+      });
+  });
+
+  // YouTube Data API key (replace with your own)
+
+  // Function to fetch videos based on the selected topic
+  document.querySelectorAll('.scrollmenu.topics a').forEach(topic => {
+      topic.addEventListener('click', event => {
+          event.preventDefault();
+          const query = topic.textContent; // Use topic text as query
+
+          fetchVideos(query);
+      });
+  });
+
+  function fetchVideos(query) {
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${encodeURIComponent(query+"shorts")}&key=${API_KEY}`;
+
+      fetch(url)
+          .then(response => response.json())
+          .then(data => {
+              const videosContainer = document.getElementById('videosContainer');
+              videosContainer.innerHTML = '';
+              data.items.forEach(item => {
+                  const videoId = item.id.videoId;
+                  const videoTitle = item.snippet.title;
+                  const videoIframe = document.createElement('iframe');
+                  videoIframe.src = `https://www.youtube.com/embed/${videoId}`;
+                  videoIframe.title = videoTitle;
+                  videoIframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                  videoIframe.allowFullscreen = true;
+                  videosContainer.appendChild(videoIframe);
+              });
+          })
+          .catch(error => {
+              console.error('Error fetching videos:', error);
+          });
   }
-}
-
-// Function to render videos on the page with lazy loading and embedded YouTube players
-function renderVideosLazy(videos) {
-  const videosContainer = document.getElementById('videos-container');
-  videos.forEach(video => {
-    // Create a container for each video
-    const videoContainer = document.createElement('div');
-    videoContainer.classList.add('video-container');
-
-    // Create the YouTube player iframe
-    const playerIframe = document.createElement('iframe');
-    playerIframe.src = `https://www.youtube.com/embed/${video.videoId}?vq480}`;
-    playerIframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-    playerIframe.allowFullscreen = true;
-    playerIframe.height = 560;
-    // Create a paragraph for the video title (permanent)
-    const titleParagraph = document.createElement('p');
-    titleParagraph.textContent = video.title;
-    titleParagraph.classList.add('video-title');
-
-    // Create a paragraph for the full description (initially hidden)
-    const descriptionParagraph = document.createElement('p');
-    descriptionParagraph.textContent = video.description;
-    descriptionParagraph.classList.add('description');
-    descriptionParagraph.style.display = 'none'; // Initially hide description
-
-    // Create a button to toggle description visibility
-    const descriptionButton = document.createElement('button');
-    descriptionButton.textContent = 'Show Description';
-    descriptionButton.classList.add('description-button');
-
-    // Add click event listener to toggle description visibility
-    descriptionButton.addEventListener('click', () => {
-      if (descriptionParagraph.style.display === 'none') {
-        descriptionParagraph.style.display = 'block';
-        descriptionButton.textContent = 'Hide Description';
-      } else {
-        descriptionParagraph.style.display = 'none';
-        descriptionButton.textContent = 'Show Description';
-      }
-    });
-
-    // Append elements to the video container
-    videoContainer.appendChild(playerIframe);
-    videoContainer.appendChild(titleParagraph);
-    videoContainer.appendChild(descriptionButton);
-    videoContainer.appendChild(descriptionParagraph);
-
-    // Append the video container to the main container
-    videosContainer.appendChild(videoContainer);
-  });
-}
-
-// Example usage with lazy loading
-const apiKey = 'AIzaSyBUG7vmvs9wNDFWckrj5H8xU010zlc94Ec'; // Replace with your API key
-getEducationalShorts(apiKey, 5)
-  .then(videos => {
-    console.log('Educational Shorts:', videos);
-    renderVideosLazy(videos);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+});
