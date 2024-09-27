@@ -32,14 +32,10 @@
     position: sticky;
     padding-bottom: 40px;
     background-color: black;
-    background-image: inherit;
 }
 #videosContainer {
-    height: 0;
     display: flex;
     align-items: center;
-    background-color: inherit;
-    background-image: inherit;
     justify-content: center;
     flex-direction: column;
     gap: 10px;
@@ -47,7 +43,6 @@
 #videosContainer iframe{
     height:  800px;
     width: 450px;
-    background-color: inherit;
 }
 
 p {
