@@ -7,14 +7,16 @@
 .scrollmenu {
     overflow: auto;
     white-space: nowrap;
+    background-image: inherit;
+    background-color: inherit;
 }
-
 .scrollmenu a {
     display: inline-block;
     color: white;
     text-align: center;
     padding: 14px;
     text-decoration: none;
+    border-bottom: none; /* Remove any unwanted border */
 }
 
 .scrollmenu.topics {
@@ -31,7 +33,7 @@
     justify-content: center;
     position: sticky;
     padding-bottom: 40px;
-    background-color: black;
+    background-image: inherit;
 }
 #videosContainer {
     display: flex;
@@ -73,10 +75,6 @@ p {
     gap:9px;
 }
 
-#profile-photo {
-    height: 50px;
-    width: 50px;
-}
 
 h1 {
     height: 50px;
@@ -118,19 +116,9 @@ body {
     background-color: black;
     color: white;
 }
-
-.navbarSticky {
-    display: flex;
-    position: sticky;
-    bottom: 0%;
-    justify-content: space-evenly;
-    width: 100%;
-    padding: 20px;
-    background-color: black;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-
-.navbarFixed {
+.navbar {
+    align-items: center;
+    height: 50px;
     display: flex;
     position: fixed;
     justify-content: space-evenly;
