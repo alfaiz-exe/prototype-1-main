@@ -141,7 +141,6 @@ function compare(triggerArray, replyArray, string) {
       }
     }
   }
-  //containMessageCheck(string);
   if (item) return item;
   else return containMessageCheck(string);
 }
@@ -181,15 +180,61 @@ function addChat(input, product) {
   userDiv.id = "user";
   userDiv.classList.add("message");
   userDiv.innerHTML = `<span id="user-response">${input}</span>`;
-  mainDiv.insertBefore(userDiv, mainDiv.firstChild); // Insert at the beginning
+  mainDiv.insertBefore(userDiv, mainDiv.firstChild); 
 
   let botDiv = document.createElement("div");
   botDiv.id = "bot";
   botDiv.classList.add("message");
   botDiv.innerHTML = `<span id="bot-response">${product}</span>`;
-  mainDiv.insertBefore(botDiv, mainDiv.firstChild); // Insert at the beginning
+  mainDiv.insertBefore(botDiv, mainDiv.firstChild); 
 
   var scroll = document.getElementById("message-section");
-  scroll.scrollTop = scroll.scrollHeight; // Keep scrolling to the latest message
+  scroll.scrollTop = scroll.scrollHeight; 
   voiceControl(product);
+}
+function removeclick() {
+  let div = document.getElementById("carding");
+  if (div) {
+    div.replaceChildren(); 
+    const button = document.createElement('button');
+    button.innerHTML = "Edugram Chat";
+    button.style.position = 'fixed';
+    button.style.bottom = '20px';
+    button.style.right = '20px';  
+    button.style.padding = '10px 20px';
+    button.style.backgroundColor = "black";
+    button.style.color = 'white';
+    button.style.border = 'none';
+    button.style.borderRadius = '5px';
+    button.style.cursor = 'pointer';
+    button.style.fontSize = '16px';
+    document.body.appendChild(button);
+    
+    button.onclick = function() {
+      button.remove();
+      div.innerHTML = `
+        <div id="carding">
+          <div class="card">
+            <div id="header">
+              <h1 style="margin-top: 1vh;">Edugram  &nbspchat &nbsp &nbsp &nbsp <button onclick = "removeclick()" style="border: none;background-color: black;">❌</button></h1>
+              </h1>
+            </div>
+            <div id="message-section">
+              <div class="message" id="bot">
+                <span id="bot-response">ARE YOU ADDICTED?</span>
+              </div>
+            </div>
+            <div id="input-section">
+              <input id="input" type="text" placeholder="Type a message" autocomplete="off" autofocus="autofocus"/>
+              <button class="send" onclick="sendMessage()">
+                <div class="circle">
+                  <i class="zmdi zmdi-mail-send"></i>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    };
+  }
 }
