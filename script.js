@@ -1,4 +1,5 @@
-const API_KEY =  'AIzaSyBUG7vmvs9wNDFWckrj5H8xU010zlc94Ec'; // Replace with your YouTube Data API v3 key
+const API_KEY = 'AIzaSyALr70k1PRFUDHpxzwxzvcijw9IdOUVTZE';
+ // Replace with your YouTube Data API v3 key
 // Replace your existing JavaScript with this code
 
 // Wait until the DOM is fully loaded
