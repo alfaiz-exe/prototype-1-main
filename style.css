@@ -3,118 +3,6 @@
     margin: 0px;
     box-sizing: border-box;
 }
-.login{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    margin: 0;
-    overflow: auto;
-    background: linear-gradient(315deg, rgba(101, 0, 94, 1) 3%, rgba(60, 132, 206, 1) 38%, rgba(48, 238, 226, 1) 68%, rgba(255, 25, 25, 1) 98%);
-    animation: gradient 15s ease infinite;
-    background-size: 400% 400%;
-    background-attachment: fixed;
-}
-
-.wrapper {
-    width: 420px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(9px);
-    color: #fff;
-    border-radius: 12px;
-    padding: 30px 40px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.wrapper h1 {
-    font-size: 36px;
-    text-align: center;
-}
-
-.wrapper .input-box {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    margin: 30px 0;
-}
-
-.input-box input {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 2px solid rgba(255, 255, 255, .2);
-    border-radius: 40px;
-    font-size: 16px;
-    color: #fff;
-    padding: 20px 45px 20px 20px;
-}
-
-.input-box input::placeholder {
-    color: #fff;
-}
-
-.input-box i {
-    position: absolute;
-    right: 20px;
-    top: 30%;
-    transform: translate(-50%);
-    font-size: 20px;
-}
-
-.wrapper .remember-forgot {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14.5px;
-    margin: -15px 0 15px;
-}
-
-.remember-forgot label input {
-    accent-color: #fff;
-    margin-right: 3px;
-}
-
-.remember-forgot a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.remember-forgot a:hover {
-    text-decoration: underline;
-}
-
-.wrapper .btn {
-    width: 100%;
-    height: 45px;
-    background: #fff;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: #333;
-    font-weight: 600;
-}
-
-.wrapper .register-link {
-    font-size: 14.5px;
-    text-align: center;
-    margin: 20px 0 15px;
-}
-
-.register-link p a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.register-link p a:hover {
-    text-decoration: underline;
-}
 
 .scrollmenu {
     overflow: auto;
@@ -180,11 +68,11 @@
     flex-direction: column;
     gap:9px;
 }
-
 #profile-photo {
-    height: 300px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
 }
+
 h1 {
     height: 50px;
 }
@@ -215,15 +103,24 @@ svg{
     background-color: black;
     color: white;
 }
-.navebar{
+.navbar {
+    align-items: center;
     height: 50px;
+    display: flex;
+    position: fixed;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    bottom: 0%;
+    background-color: black;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
 /* Styling for the scrollbar */
 /* For WebKit browsers like Chrome and Safari */
 
 .scrollmenu a:hover {
     background-color: #555; /* Background color on hover */
-    color: white;
 }
 
 /* Hide scrollbar when not hovering */
@@ -314,3 +211,4 @@ body {
         transform: translateX(1);
     }
 }
+
