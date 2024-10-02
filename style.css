@@ -120,7 +120,8 @@ svg{
 /* For WebKit browsers like Chrome and Safari */
 
 .scrollmenu a:hover {
-    background-color: #555; /* Background color on hover */
+    background-color: #555;
+    color: white; /* Background color on hover */
 }
 
 /* Hide scrollbar when not hovering */
