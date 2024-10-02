@@ -7,7 +7,7 @@
 
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh; /* Full viewport height */
     margin: 0;
@@ -172,3 +172,4 @@ body {
 .register-link p a:hover {
     text-decoration: underline;
 }
+
