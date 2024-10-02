@@ -31,7 +31,10 @@ const userMessage = [
   ["i dont know"],
   ["boring"],
   ["im tired"],
-  ["no"]
+  ["no"],
+  ["sachin" , "who is sachin" , "sachin gond"],
+  ["alfaiz"],
+  ["akshat"]
 ];
 const botReply = [
   ["Hello!", "Hi!", "Hey!", "Hi there!"],
@@ -69,7 +72,11 @@ const botReply = [
   ["ok bro"],
   ["Sorry ,Let's chat!"],
   ["Take some rest, Dude!"],
-  ["I think you are" , "Thanks for visiting"]
+  ["I think you are" , "Thanks for visiting"],
+  ["Website developer"],
+  ["Founder"],
+  ["Co-Founder"]
+  
 ];
 
 const alternative = [
@@ -238,3 +245,4 @@ function removeclick() {
     };
   }
 }
+
